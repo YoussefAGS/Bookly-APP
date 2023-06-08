@@ -1,9 +1,7 @@
 import 'package:bookly_app/core/utiles/assets.dart';
-import 'package:bookly_app/features/home/presintation/views/homelayout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -25,7 +23,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     initAnimation();
     Navigat();
   }
-
 
   @override
   void dispose() {
@@ -52,11 +49,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
       ],
     );
   }
+
   void Navigat() {
-    Future.delayed(const Duration(seconds: 3),(){
-      Get.to(()=>const HomeLayout(),transition: Transition.fade,duration: Duration(milliseconds: 250));
+    Future.delayed(const Duration(seconds: 3), () {
+      // Get.to(
+      //   ()=>const HomeLayout(),transition: Transition.fade,duration: Duration(milliseconds: 250));
+      GoRouter.of(context).pushReplacement('/home');
     });
   }
+
   void initAnimation() {
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
@@ -78,17 +79,13 @@ class TextAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: animation,
-      builder: (context,_)=> SlideTransition(
+      builder: (context, _) => SlideTransition(
           position: animation,
           child: const Text(
             "Read Free Books",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 20
-            ),
+            style: TextStyle(fontSize: 20),
           )),
     );
   }
-
 }
-

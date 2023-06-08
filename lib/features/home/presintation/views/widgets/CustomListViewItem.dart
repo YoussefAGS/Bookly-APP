@@ -13,11 +13,14 @@ class CustomListViewItem extends StatelessWidget {
       aspectRatio: 150/224,
       child: Container(
         decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage(imageURL)
+
+          ),
             color: Colors.red,
             borderRadius: BorderRadius.circular(16)
         ),
-
-        child: SvgPicture.asset(imageURL,fit: BoxFit.fill,),
       ),
     );
   }

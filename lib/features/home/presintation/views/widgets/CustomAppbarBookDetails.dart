@@ -1,11 +1,12 @@
 import 'dart:math';
 
-import 'package:bookly_app/core/utiles/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomAppBare extends StatelessWidget {
-  const CustomAppBare({Key? key}) : super(key: key);
+import '../../../../../core/utiles/assets.dart';
+
+class CustomAppbarBookDetails extends StatelessWidget {
+  const CustomAppbarBookDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +17,8 @@ class CustomAppBare extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SvgPicture.asset(Assets.logo,height:max(height, width)*0.025 ),
-          SvgPicture.asset(Assets.search,height:max(height, width)*0.020 ),
+          IconButton(onPressed: (){}, icon: Icon(Icons.close),),
+          SvgPicture.asset(Assets.shap,height:max(height, width)*0.020 ),
         ],
       ),
     );

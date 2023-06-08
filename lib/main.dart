@@ -1,9 +1,7 @@
-import 'package:bookly_app/features/home/presintation/views/homelayout.dart';
-import 'package:bookly_app/features/splash/presintation/views/splashview.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+import 'package:flutter/material.dart';
 import 'constant.dart';
+import 'core/utiles/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,15 +13,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-    return GetMaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRoutes.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: primaryColor
       ),
-      home: const SplashView(),
-
     );
   }
 }
+
 

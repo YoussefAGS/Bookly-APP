@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:bookly_app/core/utiles/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utiles/assets.dart';
 
@@ -17,7 +19,9 @@ class CustomAppbarBookDetails extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.close),),
+          IconButton(onPressed: (){
+            GoRouter.of(context).push(AppRoutes.homeLayout);
+          }, icon: Icon(Icons.close),),
           SvgPicture.asset(Assets.shap,height:max(height, width)*0.020 ),
         ],
       ),

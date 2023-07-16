@@ -8,10 +8,11 @@ class BestSellerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     int g=width.toInt();
     return GridView.builder(
+      itemCount: 100,
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           mainAxisSpacing: 20,
           crossAxisCount: max(1,(g~/350)),
@@ -19,8 +20,7 @@ class BestSellerListView extends StatelessWidget {
           mainAxisExtent: 105
       ),
       itemBuilder: (context,index)=>const  BestSellerListViewItem(),
-      itemCount: 100,
-      physics: const NeverScrollableScrollPhysics(),
+
 
     );
   }

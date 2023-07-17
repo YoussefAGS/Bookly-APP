@@ -1,10 +1,14 @@
 
+import 'package:bookly_app/features/home/domain/entites/book_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'constant.dart';
 import 'core/utiles/routes.dart';
 
-void main() {
+void main() async{
   runApp(const MyApp());
+  Hive.registerAdapter(BookEntityAdapter());
+  await Hive.openBox(kFeaturedBox);
 }
 
 class MyApp extends StatelessWidget {

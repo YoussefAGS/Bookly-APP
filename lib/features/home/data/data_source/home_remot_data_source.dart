@@ -24,7 +24,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
     // TODO: implement fetchFutureBook
     List<BookEntity> bokEntity = getbookslist(data);
 
-    saveDataBooks(bokEntity);
+    saveDataBooks(bokEntity,kFeaturedBox);
     return bokEntity;
   }
 
@@ -36,6 +36,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
     var  data = await apiService.get(endpoint: "volumes?Filtering=free-ebooks&Sorting=newest &q=computer science");
     // TODO: implement fetchFutureBook
     List<BookEntity> bokEntity = getbookslist(data);
+    saveDataBooks(bokEntity,kNewsFeaturedBox);
     return bokEntity;
   }
   List<BookEntity> getbookslist(Map<String, dynamic> data) {

@@ -1,5 +1,7 @@
+import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utiles/api_service.dart';
 import 'package:bookly_app/features/home/data/models/BookModel.dart';
+import 'package:hive/hive.dart';
 
 import '../../domain/entites/book_entity.dart';
 
@@ -17,14 +19,14 @@ class HomeRemoteDataSourceImpl extends HomeLocalDataSource{
 
   @override
   List<BookEntity> fetchFutureBook() {
-    // TODO: implement fetchFutureBook
-    throw UnimplementedError();
+   var box=Hive.box<BookEntity>(kFeaturedBox);
+   return box.values.toList();
   }
 
   @override
   List<BookEntity> fetchNewFutureBook() {
-    // TODO: implement fetchNewFutureBook
-    throw UnimplementedError();
+    var box=Hive.box<BookEntity>(kNewsFeaturedBox);
+    return box.values.toList();
   }
 
   // @override

@@ -12,10 +12,8 @@ abstract class HomeLocalDataSource{
 
 
 }
-class HomeRemoteDataSourceImpl extends HomeLocalDataSource{
-  final ApiService apiService;
+class HomeLocalDataSourceImpl extends HomeLocalDataSource{
 
-  HomeRemoteDataSourceImpl(this.apiService);
 
   @override
   List<BookEntity> fetchFutureBook() {

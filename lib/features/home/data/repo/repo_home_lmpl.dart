@@ -12,7 +12,7 @@ class HomeRepoImpl extends HomeRepo {
 
   final HomeLocalDataSource homeLocalDataSource;
 
-  HomeRepoImpl(this.homeRemoteDataSource, this.homeLocalDataSource);
+  HomeRepoImpl({required this.homeRemoteDataSource, required this.homeLocalDataSource});
 
   @override
   Future<Either<FailureBook, List<BookEntity>>> fetchFutureBook() async{
